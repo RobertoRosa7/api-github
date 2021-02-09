@@ -2,13 +2,18 @@
   <div class="row justify-content-center">
     <h1>Navegue pelos repositórios:</h1>
   </div>
-  <form class="search-group">
+  <form [formGroup]="form" class="search-group" (ngSubmit)="onSubmit($event)">
     <div class="input-group mb-3">
-      <input type="text" class="form-control form-control-lg" name="search" id="search" placeholder="Busque um repositório. Ex.: mojombo/god" aria-label="Recipient's username" aria-describedby="basic-addon2">
-      <div class="input-group-append">
-        <button class="btn btn-outline-primary btn-lg" type="submit">
-          Pesquisar
-        </button>
+      <input type="text"
+            formControlName="search"
+            class="form-control form-control-lg" 
+            name="search" 
+            id="search" 
+            placeholder="Busque um repositório. Ex.: mojombo/god" 
+            aria-label="Recipient's username" 
+            aria-describedby="basic-addon2">
+          <div class="input-group-append">
+        <button class="btn btn-outline-primary btn-lg" type="submit">Pesquisar</button>
       </div>
     </div>
   </form>

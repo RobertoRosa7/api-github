@@ -1,7 +1,7 @@
 import { Repositorios } from '../listagem-repositorios/repositorios.interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {tap} from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -17,15 +17,16 @@ export class ApiService {
     private http: HttpClient
   ) { }
 
-  getData(){
+  getData() {
     return this.http.get<Repositorios[]>(this.url)
       .pipe(
         tap(console.log)
       );
   }
   getFullName(fullName: String): Observable<Repositorios[]> {
-    const contributorsUrl = `${this.contributors}?full_name=${fullName}`;
-    return this.http.get<Repositorios[]>(contributorsUrl);
+    // const contributorsUrl = `${this.contributors}?full_name=${fullName}`;
+    // console.log(contributorsUrl)
+    return this.http.get<Repositorios[]>(`https://api.github.com/repos/${fullName}`);
   }
 
 }

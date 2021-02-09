@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "apiGit"
+  "defaultProject": "apiGit",
+  "cli": {
+    "analytics": "93d660f6-d8bf-4cf3-ab38-cd22da05c5d1"
+  }
 }
